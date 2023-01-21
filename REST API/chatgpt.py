@@ -1,17 +1,15 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
+
 app = Flask(__name__)
+chatbot = Chatbot(config, conversation_id=None)
 
-@app.route('/chatbot', methods=['POST'])
-def chatbot():
-    data = request.get_json()
-    session_token = data.get("session_token")
-    conversation_id = data.get("conversation_id")
-    parent_id = data.get("parent_id")
+@app.route('/chat', methods=['POST'])
 
-    chatbot = Chatbot({ "session_token": session_token }, conversation_id, parent_id)
-    prompt = data.get("prompt")
-    response = chatbot.ask(prompt, conversation_id, parent_id)
-
+# This is the function that will be called when the user sends a message to the chatbot
+def chat():
+    request_data = request.get_json()
+    message = request_data['message']
+    response = chatbot.get_response(message)
     return jsonify(response)
 
 if __name__ == '__main__':

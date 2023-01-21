@@ -49,37 +49,6 @@ async def upload_file(file: UploadFile = File(...)):
 
     return response
 
-def summerize(original_text):
-    '''
-    Summarize the given text using the LexRank algorithm
-    --Params--
-    original_text: The text to summerize
-    Return Value: sentences
-    sentences : The summerized text
-    '''
-    # Split the text into a list of words
-    text_list = original_text.split()
-
-    # Get the number of words in the text
-    num_words = len(text_list)
-
-    # Calculate the number of sentences to include in the summary
-    count = math.ceil(num_words/70)
-
-    # Parse the text using the PlaintextParser and Tokenizer
-    my_parser = PlaintextParser.from_string(original_text,Tokenizer('english'))
-
-    # Create a LexRankSummarizer object
-    lex_rank_summarizer = LexRankSummarizer()
-    # Summarize the text using the LexRank algorithm
-    lexrank_summary = lex_rank_summarizer(my_parser.document,sentences_count=count)
-
-    # Concatenate the summary sentences into a single string
-    sentences = ''
-    for sentence in lexrank_summary:
-        sentences = sentences + str(sentence)
-    return sentences
-
 def upload_file(fileObj):
     '''
     Upload a file to AssemblyAI and get the transcribe id and API key

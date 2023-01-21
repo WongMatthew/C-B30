@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import CBTlogo from './cb30.png';
 import './App.css';
 import ChatBot from 'react-simple-chatbot';
 
@@ -21,7 +22,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <ChatBot steps={steps} />
+        <ChatBot steps={steps}
+          botAvatar={CBTlogo}
+         />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

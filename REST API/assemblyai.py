@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import requests
 import nltk
 nltk.download('punkt')
-import math
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer

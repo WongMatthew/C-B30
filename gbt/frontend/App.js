@@ -1,6 +1,8 @@
 import CBTlogo from './cb30.png';
 import './App.css';
 import ChatBot from 'react-simple-chatbot';
+import ChatAPI from './components/chatAPI.js';
+
 
 const steps = [
   {
@@ -13,6 +15,13 @@ const steps = [
     message: 'Bye!',
     end: true,
   },
+  {
+    id: 'serial-response',
+    component: <ChatAPI />,
+    end: true,
+    waitAction: true,
+    trigger: '1',
+  }
 ];
 
 

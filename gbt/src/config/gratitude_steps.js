@@ -1,6 +1,5 @@
-import ChatAPI from '../components/ChatAPI';
+import ChatbotApp from '../components/ChatbotApp.js';
 import React from 'react';
-
 
 const gratitudeSteps = [
   {
@@ -15,10 +14,10 @@ const gratitudeSteps = [
   },
   {
     id: 'chat-api',
-    component: <ChatAPI/>,
+    component: <ChatbotApp/>,
     end: true,
     waitAction: true,
-    trigger: '1',
+    trigger: 1
   }
 ];
 

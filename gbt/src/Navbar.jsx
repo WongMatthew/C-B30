@@ -4,9 +4,9 @@ import './dist/output.css';
 import EmotionCard from './components/EmotionCard.js';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
-import angerImg from './/images/angry.png'
-import anxImg from './/images/sad.png'
-import happyImg from './/images/happy.png'
+import angerImg from './images/angry.png'
+import anxImg from './images/sad.png'
+import happyImg from './images/happy.png'
 
 function Navbar() {
   return (

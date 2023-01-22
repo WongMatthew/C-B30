@@ -9,7 +9,7 @@ function Header({title, href, body}) {
       <div class="flex max-w-3xl mx-auto flex-row items-center jusify-left pt-2">
         <img className="h-16" src={icon}></img>
         <div className="p-4 rounded-lg">
-          <div className='text-3  xl font-bold'>
+          <div className='text-3xl  xl font-bold'>
             C-B30
           </div>
         </div>

@@ -1,0 +1,18 @@
+---
+const { title, description} = Astro.props
+---
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>C-B30</title>
+    <!-- <meta name="description" content={description}/> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap'); */
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap");
+    </style>
+<div class="max-w-7xl mx-auto w-full">
+    <slot/>
+</div>
+

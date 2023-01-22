@@ -1,42 +1,37 @@
 ---
+import Base from "../components/Base.astro";
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import EmotionCard from '../components/EmotionCard.astro';
 ---
+<link href="/dist/output.css" rel="stylesheet">
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<div class="text-5xl font-bold">
-			test
+<Base>
+	<div>
+		<div class="max-w-3xl mx-auto">
+			<h1>Welcome to C-B30</h1>
+			<div>
+				To get started, pick an emotion that you would like to work with.
+			</div>
+			<ul class="flex flex-row space-x-6 pt-6">
+				<EmotionCard
+					href="https://docs.astro.build/"
+					title="Anxiety"
+					body="Work through an overwhelming situation."
+				/>
+				<EmotionCard
+					href="https://astro.build/integrations/"
+					title="Gratitude"
+					body="Take a moment to feel thankful for all that you have."
+				/>
+				<EmotionCard
+					href="https://astro.build/themes/"
+					title="Anger "
+					body="Explore a galaxy of community-built starter themes."
+				/>
+			</ul>
 		</div>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+	</div>
+</Base>
 
 <style>
 	main {

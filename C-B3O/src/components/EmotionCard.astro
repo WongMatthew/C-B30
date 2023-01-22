@@ -1,0 +1,14 @@
+---
+const { href, title, body } = Astro.props;
+---
+
+
+<a class="border rounded-lg p-4" href={href}>
+		<div class="text-xl font-bold">
+			{title}
+		</div>
+		<div class="pt-2">
+			{body}
+		</div>
+</a>
+

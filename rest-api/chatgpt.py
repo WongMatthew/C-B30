@@ -1,14 +1,18 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
+from revChatGPT.ChatGPT import Chatbot
+import json
+
 app = Flask(__name__)
+config = json.load(open("config.json"))
+chatbot = Chatbot(config)
 
-
-@app.route('/chatbot', methods=['POST'])
-def chatbot():
-    data = request.get_json()
-    session_token = data.get("session_token")
-
-    chatbot = Chatbot({ "session_token": session_token }, conversation_id, parent_id)
-    prompt = data.get("prompt")
-    response = chatbot.ask(prompt, conversation_id, parent_id)
-
+@app.route('/prompt', methods=['POST'])
+def prompt():
+    request_data = request.get_json()
+    message = request_data['message']
+    response = chatbot.get_response(message)
+    json.dumps({"message"})
     return jsonify(response)
+
+if __name__ == '__main__':
+    app.run()

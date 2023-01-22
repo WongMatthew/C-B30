@@ -10,8 +10,7 @@ chatbot = Chatbot(config)
 def prompt():
     request_data = request.get_json()
     message = request_data['message']
-    response = chatbot.get_response(message)
-    json.dumps({"message"})
+    response = chatbot.ask(message)
     return jsonify(response)
 
 if __name__ == '__main__':

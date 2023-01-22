@@ -1,8 +1,7 @@
 import CBTlogo from './cb30.png';
 import './App.css';
 import ChatBot from 'react-simple-chatbot';
-import ChatAPI from './components/chatAPI.js';
-
+import ChatAPI from './components/ChatAPI.js';
 
 const steps = [
   {
@@ -23,7 +22,6 @@ const steps = [
     trigger: '1',
   }
 ];
-
 
 function App() {
   return (

@@ -36,4 +36,4 @@ function ChatAPI() {
   );
 }
 
-export default Chatbot;
+export default ChatAPI;

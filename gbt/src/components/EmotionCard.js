@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
-function EmotionCard({title}) {
+function EmotionCard({title, href, body}) {
 
   return (
-    <a class="border rounded-lg p-4" href="/">
-        <div class="text-xl font-bold">
+    <Link  class="" to={href}>
+      <div className="p-4 border rounded-lg">
+        <div className='text-xl font-bold'>
           {title}
         </div>
         <div class="pt-2">
-          test
+          {body}
         </div>
-    </a>
+      </div>
+    </Link>
+    
   );
 }
 

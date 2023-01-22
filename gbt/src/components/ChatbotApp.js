@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import ChatBot, { Loading } from 'react-simple-chatbot';
+import { Loading } from 'react-simple-chatbot';
 
-const getResponse = async (userInput, conversationId, parentId) => {
+/* const getResponse = async (userInput, conversationId, parentId) => {
   // Make API call to your chatbot service
   const response = await fetch('http://127.0.0.1:5000/ask', {
     method: 'POST',
@@ -12,7 +12,7 @@ const getResponse = async (userInput, conversationId, parentId) => {
     body: JSON.stringify({ user_input: userInput, conversation_id: conversationId, parent_id: parentId }),
   });
   return response.json();
-}
+} */
 
 class ChatbotApp extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class ChatbotApp extends Component {
     xhr.addEventListener('readystatechange', readyStateChange);
 
     function readyStateChange() {
-      if (this.readyState === 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         const data = JSON.parse(this.responseText);
         console.log(data);
         const bindings = data.results.bindings;

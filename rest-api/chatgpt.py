@@ -14,7 +14,7 @@ def ask():
     conversation_id = request.json.get('conversation_id')
     parent_id = request.json.get('parent_id')
     response = chatbot.ask(user_input, conversation_id, parent_id)
-    return json.dumps(response)
+    return response
 
 if __name__ == '__main__':
     app.run()

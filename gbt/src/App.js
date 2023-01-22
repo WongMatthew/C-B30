@@ -21,6 +21,7 @@ const ChatbotApp = () => {
     // Start the conversation by passing an initial prompt to the API
     const initialPrompt = "ask me these questions one by one and have a conversation with me about them: Modifying Rules And Assumptions What is the rule (or assumption) I live by that I would like to modify? How does this rule (or assumption) affect me in my day to day life?";
     getResponse(initialPrompt, conversationId, "start").then((response) => {
+      console.log(response);
       setSteps([
         {
           id: '1',

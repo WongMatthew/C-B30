@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from revChatGPT.ChatGPT import Chatbot
 
 app = Flask(__name__)
 chatbot = Chatbot(config)

@@ -1,6 +1,7 @@
 import angry from '../images/angry.png'
 import sad from '../images/sad.png'
 import happy from '../images/happy.png'
+import arr from '../images/arrow.png'
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -15,8 +16,11 @@ function EmotionCard({title, href, image, body}) {
       <div className="p-4 bg-zinc-100 border rounded-lg">
         <div className='flex flex-row items-center justify-center'>
             <div className='pl-2'>
-                <div className='text-2xl font-bold'>
-                  {title}
+                <div className='flex flex-row'>
+                  <div className='text-2xl font-bold'>
+                    {title}
+                  </div>
+                    <img className='ml-2 w-6' src={arr}></img>
                 </div>
               <div className='pt-2 flex flex-row items-center justify-center'>
                 <div class="">

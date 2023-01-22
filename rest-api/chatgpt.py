@@ -1,8 +1,10 @@
 from flask import Flask, request
 from revChatGPT.ChatGPT import Chatbot
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app)
 config = json.load(open("config.json"))
 chatbot = Chatbot(config)
 

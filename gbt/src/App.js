@@ -1,72 +1,71 @@
-import CBTlogo from './cb30.png';
-import './App.css';
-import './dist/output.css';
-import ChatBot from 'react-simple-chatbot';
-import EmotionCard from './components/EmotionCard.js';
-import ChatAPI from './components/ChatAPI.js';
-import gratitudeSteps from './config/gratitude_steps';
+import React, { useState } from 'react';
+import Chatbot from 'react-simple-chatbot';
 
-// function App() {
-//   return (
+const ChatbotApp = () => {
+  const [conversationId, setConversationId] = useState(null);
 
-//     <div className="App">
-//       <div className='text-blue font-xl'>
-//         testing
-//       </div>
-//       <header className="App-header">
-//         <ChatBot
-//           headerTitle="C-B3O"
-//           recognitionEnable={true}
-//           steps={gratitudeSteps}
-//           />
-//       </header>
-//     </div>
-//   );
-// }
-function App() {
+  // Use this function to call your API and get the chatbot response
+  const getResponse = async (userInput, conversationId, parentId) => {
+    // Make API call to your chatbot service
+    const response = await fetch('http://127.0.0.1:5000/ask', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user_input: userInput, conversation_id: conversationId, parent_id: parentId }),
+    });
+    return response.json();
+  }
+
+  useEffect(() => {
+    // Start the conversation by passing an initial prompt to the API
+    const initialPrompt = "ask me these questions one by one and have a conversation with me about them: Modifying Rules And Assumptions What is the rule (or assumption) I live by that I would like to modify? How does this rule (or assumption) affect me in my day to day life?";
+    getResponse(initialPrompt, conversationId, "start").then((response) => {
+      setSteps([
+        {
+          id: '1',
+          message: response.answer,
+          trigger: '2',
+        },
+        {
+          id: '2',
+          user: true,
+          trigger: '3',
+        },
+        {
+          id: '3',
+          message: 'Thanks for your input',
+          end: true,
+        },
+      ])
+    });
+  }, []);
+
   return (
-    
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <div>
-        <div class="max-w-3xl mx-auto">
-          <h1>Welcome to C-B30</h1>
-          <div>
-            To get started, pick an emotion that you would like to work with.
-          </div>
-          <ul class="flex flex-row space-x-6 pt-6">
-            <EmotionCard 
-              href={"/emotion"}
-              title={"Anxiety"}
-              body={"Work through an overwhelming situation."}
-            />
-            {/* <EmotionCard
-              href="https://astro.build/integrations/"
-              title="Gratitude"
-              body="Take a moment to feel thankful for all that you have."
-            />
-            <EmotionCard
-              href="https://astro.build/themes/"
-              title="Anger "
-              body="Explore a galaxy of community-built starter themes."
-            /> */}
-          </ul>
-        </div>
-      </div>
-      <ChatBot
-        steps={[
-          {
-            id: 'hello-world',
-            message: 'Hello World!',
-            end: true,
-          },
-        ]}
-      />
-      <p className="text-3xl text-gray-700 font-bold mb-5">
-        Why isn't this working
-      </p>
-    </div>
-    
+    <Chatbot
+      steps={steps}
+      botDelay={500}
+      handleEnd={(conversationId) => setConversationId(conversationId)}
+      handleStepChange={(step) => {
+        if (step.user) {
+          // Use the user input to call the API and get the response
+          getResponse(step.value, conversationId, step.id)
+            .then((response) => {
+              // Use the API response to update the steps array
+              updateSteps(step.id, [
+                {
+                  id: step.id + '-response',
+                  message: response.answer,
+                  trigger: '2',
+                },
+              ]);
+            });
+        }
+      }}
+      getResponse={getResponse}
+      conversationId={conversationId}
+    />
   );
-}
+};
 
-export default App;
+export default ChatbotApp;

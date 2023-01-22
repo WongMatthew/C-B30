@@ -4,6 +4,10 @@ import './dist/output.css';
 import EmotionCard from './components/EmotionCard.js';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
+import angerImg from './/images/angry.png'
+import anxImg from './/images/sad.png'
+import happyImg from './/images/happy.png'
+
 function Navbar() {
   return (
     <div className="container mx-auto bg-blue-grey rounded-xl p-8 m-10">
@@ -16,19 +20,19 @@ function Navbar() {
               <EmotionCard
                 href={"/Anger"}
                 title={"Anger"}
-                image={"/images/happy.png"}
+                image={angerImg}
                 body={"Work through an overwhelming situation."}
               />
               <EmotionCard
                 href={"/Anxiety"}
                 title={"Anxiety"}
-                image={"/images/sad.png"}
+                image={anxImg}
                 body={"Work through an overwhelming situation."}
               />
               <EmotionCard
                 href={"/Gratitude"}
                 title={"Gratitude"}
-                image={"/images/happy.png"}
+                image={happyImg}
                 body={"Work through an overwhelming situation."}
               />
             </div>

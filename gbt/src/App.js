@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, setSteps, steps, updateSteps } from 'react';
 import Chatbot from 'react-simple-chatbot';
 
 const ChatbotApp = () => {

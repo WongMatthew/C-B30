@@ -4,6 +4,7 @@ import '../dist/output.css';
 import EmotionCard from '../components/EmotionCard.js';
 import ChatAPI from '../components/ChatAPI.js';
 import gratitudeSteps from '../config/gratitude_steps';
+import ChatBot from 'react-simple-chatbot';
 
 function Anger() {
   return (
@@ -16,7 +17,7 @@ function Anger() {
       </div>
       <div className='flex flex-row w-full items-center justify-center'>
         
-        {/* <ChatBot
+        <ChatBot
           steps={[
             {
               id: 'hello-world',
@@ -29,7 +30,7 @@ function Anger() {
               end: true,
             },
           ]}
-        /> */}
+        />
       </div>
     </div>
     

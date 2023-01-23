@@ -6,7 +6,7 @@ import ChatAPI from '../components/ChatAPI.js';
 import gratitudeSteps from '../config/gratitude_steps';
 import ChatBot from 'react-simple-chatbot';
 
-function Anger() {
+function Anxiety() {
   return (
     
     <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
@@ -21,7 +21,7 @@ function Anger() {
           steps={[
             {
               id: 'hello-world',
-              message: 'Hello Anger!',
+              message: 'Hello Anxiety!',
               end: true,
             },
             {
@@ -37,4 +37,4 @@ function Anger() {
   );
 }
 
-export default Anger;
+export default Anxiety;

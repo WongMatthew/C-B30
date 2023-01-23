@@ -7,8 +7,8 @@ import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Anger from './pages/Anger';
 // import App from './App';
-// import Anxiety from './pages/Anxiety';
-// import Gratitude from './pages/Gratitude';
+import Anxiety from './pages/Anxiety';
+import Gratitude from './pages/Gratitude';
 
 
 export default function App() {
@@ -18,6 +18,8 @@ export default function App() {
           <Route path="/" element={<Layout />}/>
           <Route path="Home" element={<Home />} />
           <Route path="Anger" element={<Anger />} />
+          <Route path="Anxiety" element={<Anxiety />} />
+          <Route path="Gratitude" element={<Gratitude />} />
         </Routes>
     </BrowserRouter>
   );

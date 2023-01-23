@@ -7,24 +7,6 @@ import ChatAPI from './components/ChatAPI.js';
 import gratitudeSteps from './config/gratitude_steps';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-
-// function App() {
-//   return (
-
-//     <div className="App">
-//       <div className='text-blue font-xl'>
-//         testing
-//       </div>
-//       <header className="App-header">
-//         <ChatBot
-//           headerTitle="C-B3O"
-//           recognitionEnable={true}
-//           steps={gratitudeSteps}
-//           />
-//       </header>
-//     </div>
-//   );
-// }
 function App() {
   return (
     <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
@@ -39,19 +21,19 @@ function App() {
           <ul class="flex flex-row space-x-6 pt-6">
             <EmotionCard 
               href={"/Anger"}
-              title={"Anxiety"}
+              title={"Anger"}
               body={"Work through an overwhelming situation."}
             />
-            {/* <EmotionCard
-              href="https://astro.build/integrations/"
-              title="Gratitude"
+            <EmotionCard
+              href={"/Anxiety"}
+              title={"Anxiety"}
               body="Take a moment to feel thankful for all that you have."
             />
             <EmotionCard
-              href="https://astro.build/themes/"
-              title="Anger "
+              href={"/Gratitude"}
+              title={"Gratitude"}
               body="Explore a galaxy of community-built starter themes."
-            /> */}
+            />
           </ul>
         </div>
       </div>

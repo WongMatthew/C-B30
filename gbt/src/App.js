@@ -15,8 +15,6 @@ function App() {
           <h1>Welcome to C-B30</h1>
           <div>
             To get started, pick an emotion that you would like to work with.
-            <Link to="/Anger">About
-            Testing if this works</Link>
           </div>
           <ul class="flex flex-row space-x-6 pt-6">
             <EmotionCard 
@@ -37,10 +35,6 @@ function App() {
           </ul>
         </div>
       </div>
-      
-      <p className="text-3xl text-gray-700 font-bold mb-5">
-        Why isn't this working
-      </p>
     </div>
     
   );

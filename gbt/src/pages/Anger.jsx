@@ -3,7 +3,10 @@ import '../dist/output.css';
 import ChatBot from 'react-simple-chatbot';
 import React, { useState } from 'react';
 import axios from 'axios';
+import ReactDOM from 'react-dom/client';
 
+const root = document.getElementById('root');
+const rootInstance = ReactDOM.createRoot(root);
 
 const Anger = () => {
     const [conversationId, setConversationId] = useState(null);
@@ -62,4 +65,6 @@ const Anger = () => {
   };
   
 export default Anger;
+
+rootInstance.render(<Anger />);
 

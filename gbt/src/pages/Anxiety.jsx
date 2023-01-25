@@ -1,9 +1,5 @@
-import CBTlogo from '../cb30.png';
 import '../App.css';
 import '../dist/output.css';
-import EmotionCard from '../components/EmotionCard.js';
-import ChatAPI from '../components/ChatAPI.js';
-import gratitudeSteps from '../config/gratitude_steps';
 import ChatBot from 'react-simple-chatbot';
 
 function Anxiety() {

@@ -19,17 +19,17 @@ const Anger = () => {
     const handleUserInput = async (userInput) => {
       try {
         const response = await axios.post('http://127.0.0.1:5000/ask', {
-          user_input: userInput,
-          conversation_id: conversationId,
-          parent_id: parentId,
+          user_input: "Hello",
+          conversation_id: 123,
+          parent_id: 123,
         });
-  
         setConversationId(response.data.conversation_id);
         setParentId(response.data.parent_id);
-  
         return response.data.message;
       } catch (err) {
         console.log(err);
+        console.log('Error in handleUserInput');
+        return 'Error Occured';
       }
     };
   

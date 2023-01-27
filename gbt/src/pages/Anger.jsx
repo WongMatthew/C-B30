@@ -3,10 +3,6 @@ import '../dist/output.css';
 import ChatBot from 'react-simple-chatbot';
 import React, { useState } from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom/client';
-
-const root = document.getElementById('root');
-const rootInstance = ReactDOM.createRoot(root);
 
 const Anger = () => {
     const [conversationId, setConversationId] = useState(null);
@@ -19,9 +15,9 @@ const Anger = () => {
     const handleUserInput = async (userInput) => {
       try {
         const response = await axios.post('http://127.0.0.1:5000/ask', {
-          user_input: "Hello",
-          conversation_id: 123,
-          parent_id: 123,
+          user_input: "hello",
+          conversation_id: null,
+          parent_id: null,
         });
         setConversationId(response.data.conversation_id);
         setParentId(response.data.parent_id);
@@ -65,6 +61,4 @@ const Anger = () => {
   };
   
 export default Anger;
-
-rootInstance.render(<Anger />);
 

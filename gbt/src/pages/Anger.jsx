@@ -65,19 +65,24 @@ const Anger = () => {
             id: 'user',
             user: true,
             trigger: async (output) => {
-              console.log(output);
+              console.log(output.value);
               if (output.value === 'shut up') {
-                handleEnd();
+                //handleEnd();
                 return 'end';
               }
-              bot_response_message = await handleUserInput(output.value);
+              const bot_response_message = await handleUserInput(output.value);
               return 'repeat';
             },
           },
           {
             id: 'repeat',
-            message: bot_response_message,
+            message: "bye",
             trigger: 'user',
+          },
+          {
+            id: 'end',
+            message: 'Thank you for using the chatbot!',
+            end: true, 
           },
         ]}
       />

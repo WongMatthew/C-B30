@@ -53,12 +53,17 @@ const Anger = () => {
       }
   };
   
+  const starter_message = "Ask me this set of questions during our conversation and respond constructively, carry on the conversation based on your intuition but always refer back to the list of questions that need to be asked, respond to this prompt by starting the conversation by asking the first question: how has your day been? what do you think could have improved your day and mood? how do you think that you can change your point of view to improve your mood? Feel free to rephrase the questions to make it fit the context of the conversation better";
+
     return (
       <ChatBot
         steps={[
           {
             id: '1',
-            message: 'Welcome to the chatbot! How can I help you today?',
+            message: async () => {
+              const starter_response = await handleUserInput(starter_message);
+              return starter_response;
+            },
             trigger: 'user',
           },
           {

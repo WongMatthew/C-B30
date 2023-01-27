@@ -10,7 +10,7 @@ you might need to add --user if you're not running command from admin
 
 ```pip install -U flask-cors``` 
 
-```npm install``
+```npm install```
 
 ## Notes
 

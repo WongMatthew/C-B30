@@ -10,4 +10,10 @@ you might need to add --user if you're not running command from admin
 
 ```pip install -U flask-cors``` 
 
-```npm install`` 
+```npm install``
+
+## Notes
+
+The FE has to pass in None/Null in the json during the first API call
+
+Grab new session token every day or else you'll run auth error

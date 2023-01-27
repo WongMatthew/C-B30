@@ -4,14 +4,11 @@ import ChatBot from 'react-simple-chatbot';
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const bot_response_message = '';
+
 const Anger = () => {
     const [conversationId, setConversationId] = useState(null);
     const [parentId, setParentId] = useState(null);
-  
-    const handleEnd = () => {
-      // Code to handle end of conversation
-    };
-  
 
     // IM DOING THE PROMISES WRONG AND IDK IF I WANT ASYNC OR AWAIT 
     // const handleUserInput = async (userInput) => {
@@ -60,22 +57,19 @@ const Anger = () => {
         steps={[
           {
             id: '1',
-            message: async () => {
-              const starter_response = await handleUserInput(starter_message);
-              return starter_response;
-            },
+            message:"Hello, welcome to the chatbot",
             trigger: 'user',
           },
           {
             id: 'user',
-            user: true,
+            user: true, //functions cannot be async or else it will create errors on chatbot, this has been left here as an example
             trigger: async (output) => {
               console.log(output.value);
               if (output.value === 'shut up') {
                 //handleEnd();
                 return 'end';
               }
-              const bot_response_message = await handleUserInput(output.value);
+              bot_response_message = await handleUserInput(output.value);//main issue here
               return 'repeat';
             },
           },
@@ -86,7 +80,8 @@ const Anger = () => {
           },
           {
             id: 'end',
-            message: 'Thank you for using the chatbot!',
+            //https://lucasbassetti.com.br/react-simple-chatbot/#/docs/steps    <-- link to documentation on the custom component, example is provided as well
+            component: /*insert custom component element here, needs to assign bot_response_message using the async function (maybe display if possible) */,
             end: true, 
           },
         ]}

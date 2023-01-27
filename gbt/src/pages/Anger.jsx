@@ -34,14 +34,14 @@ const Anger = () => {
     const handleUserInput = async (userInput) => {
       try {
           const response = await axios.post('http://127.0.0.1:5000/ask', {
-              user_input: "hello",
+              user_input: userInput,
               conversation_id: null,
               parent_id: null,
-          }, { timeout: 300000 });
+          }, { timeout: 100000 });
           setConversationId(response.data.conversation_id);
           setParentId(response.data.parent_id);
-          console.log(response.data.message)
-          return response.data.message;
+          console.log(response.data.response)
+          return response.data.response;
       } catch (err) {
           if (err.code === 'ECONNABORTED') {
               console.log('Error: Request took too long to complete')
@@ -64,20 +64,20 @@ const Anger = () => {
           {
             id: 'user',
             user: true,
-            trigger: async (value) => {
-              console.log(value);
-              if (value === 'ending phrase') {
+            trigger: async (output) => {
+              console.log(output);
+              if (output.value === 'shut up') {
                 handleEnd();
                 return 'end';
               }
-              const message = await handleUserInput(value);
-              return message;
+              bot_response_message = await handleUserInput(output.value);
+              return 'repeat';
             },
           },
           {
-            id: 'end',
-            message: 'Thank you for using the chatbot! Have a great day!',
-            end: true,
+            id: 'repeat',
+            message: bot_response_message,
+            trigger: 'user',
           },
         ]}
       />

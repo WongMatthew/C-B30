@@ -12,22 +12,46 @@ const Anger = () => {
       // Code to handle end of conversation
     };
   
+
+    // IM DOING THE PROMISES WRONG AND IDK IF I WANT ASYNC OR AWAIT 
+    // const handleUserInput = async (userInput) => {
+    //   try {
+    //     const response = await axios.post('http://127.0.0.1:5000/ask', {
+    //       user_input: "hello",
+    //       conversation_id: null,
+    //       parent_id: null,
+    //     });
+    //     setConversationId(response.data.conversation_id);
+    //     setParentId(response.data.parent_id);
+    //     return response.data.message;
+    //   } catch (err) {
+    //     console.log(err);
+    //     console.log('Error in handleUserInput');
+    //     return 'Error Occured';
+    //   }
+    // };
+
     const handleUserInput = async (userInput) => {
       try {
-        const response = await axios.post('http://127.0.0.1:5000/ask', {
-          user_input: "hello",
-          conversation_id: null,
-          parent_id: null,
-        });
-        setConversationId(response.data.conversation_id);
-        setParentId(response.data.parent_id);
-        return response.data.message;
+          const response = await axios.post('http://127.0.0.1:5000/ask', {
+              user_input: "hello",
+              conversation_id: null,
+              parent_id: null,
+          }, { timeout: 300000 });
+          setConversationId(response.data.conversation_id);
+          setParentId(response.data.parent_id);
+          console.log(response.data.message)
+          return response.data.message;
       } catch (err) {
-        console.log(err);
-        console.log('Error in handleUserInput');
-        return 'Error Occured';
+          if (err.code === 'ECONNABORTED') {
+              console.log('Error: Request took too long to complete')
+              return 'Error Occured';
+          }
+          console.log(err);
+          console.log('Error in handleUserInput');
+          return 'Error Occured';
       }
-    };
+  };
   
     return (
       <ChatBot

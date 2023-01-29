@@ -17,3 +17,5 @@ you might need to add --user if you're not running command from admin
 The FE has to pass in None/Null in the json during the first API call
 
 Grab new session token every day or else you'll run auth error
+
+Currently using: https://lucasbassetti.com.br/react-simple-chatbot/#/docs/steps

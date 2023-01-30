@@ -31,14 +31,6 @@ def ask():
     return jsonify({"response": message, "conversation_id": new_conversation_id, "parent_id": new_parent_id})
 
 '''
-fix the conversation_id and parent_id
-
-supposed to be None
-
-https://prnt.sc/_0B7zerdbKyd
-
-^^ fixed!!
-
 Note: on the FE, need to pass in conversation_id and parent_id as None for the API call, afterwards, 
 save the conversation_id and parent_id from the response and pass it in for the next API call
 

@@ -7,26 +7,8 @@ import axios from 'axios';
 const bot_response_message = '';
 
 const Anger = () => {
-    const [conversationId, setConversationId] = useState(null);
-    const [parentId, setParentId] = useState(null);
-
-    // IM DOING THE PROMISES WRONG AND IDK IF I WANT ASYNC OR AWAIT 
-    // const handleUserInput = async (userInput) => {
-    //   try {
-    //     const response = await axios.post('http://127.0.0.1:5000/ask', {
-    //       user_input: "hello",
-    //       conversation_id: null,
-    //       parent_id: null,
-    //     });
-    //     setConversationId(response.data.conversation_id);
-    //     setParentId(response.data.parent_id);
-    //     return response.data.message;
-    //   } catch (err) {
-    //     console.log(err);
-    //     console.log('Error in handleUserInput');
-    //     return 'Error Occured';
-    //   }
-    // };
+    const [setConversationId] = useState(null);
+    const [setParentId] = useState(null);
 
     const handleUserInput = async (userInput) => {
       try {

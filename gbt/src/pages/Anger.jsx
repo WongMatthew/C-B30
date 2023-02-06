@@ -4,8 +4,6 @@ import ChatBot from 'react-simple-chatbot';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-let bot_response_message = '';
-
 const Anger = () => {
   const [setConversationId] = useState(null);
   const [setParentId] = useState(null);
